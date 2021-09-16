@@ -1,14 +1,22 @@
+name: Add comment
 on:
   issues:
-    types: [labeled]
+    types:
+      - labeled
   pull_request:
-    types: [labeled]
-
+    types:
+      - labeled
 jobs:
-  automate_reminder_comment:
+  add-comment:
+    if: github.event.label.name == 'remind'
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull_request: write
     steps:
-      with:
-          label: remind
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          comment: '<b>Invitation sent for the GitHub Organisation. Welcome to the community 🎉</b><br><br>Don''t forget after accepting to make it public so it appears on your GitHub profile for everyone else to see, you can do this by finding your name in the GitHub organisation list and change the dropdown to public https://github.com/orgs/Programmers-Universal-Group/people<br>'
+      - name: Add comment
+        uses: peter-evans/create-or-update-comment@a35cf36e5301d70b76f316e867e7788a55a31dae
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Reminder!!
