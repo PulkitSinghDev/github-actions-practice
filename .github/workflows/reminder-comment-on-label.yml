@@ -8,7 +8,6 @@ jobs:
   automate_reminder_comment:
     runs-on: ubuntu-latest
     steps:
-      - name: reminder comment on label
       with:
           label: remind
           repo-token: ${{ secrets.GITHUB_TOKEN }}
