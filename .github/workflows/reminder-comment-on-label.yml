@@ -5,12 +5,11 @@ on:
     types: [labeled]
 
 jobs:
-  greeting:
+  automate_reminder_comment:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/first-interaction@v1
+      - name: reminder comment on label
       with:
-        label: remind
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        issue-message: '<h1>It''s great having you contribute to this project</h1> Thank you for raising an <strong>Issue</strong> and welcome to the community :nerd_face:'
-        pr-message: '<h1>It''s great having you contribute to this project</h1> Thank you for creating a <strong>Pull Request</strong> and welcome to the community :nerd_face:'
+          label: remind
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          comment: '<b>Invitation sent for the GitHub Organisation. Welcome to the community 🎉</b><br><br>Don''t forget after accepting to make it public so it appears on your GitHub profile for everyone else to see, you can do this by finding your name in the GitHub organisation list and change the dropdown to public https://github.com/orgs/Programmers-Universal-Group/people<br>'
