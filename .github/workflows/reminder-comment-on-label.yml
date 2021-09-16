@@ -12,7 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       issues: write
-      pull_request: write
     steps:
       - name: Add comment
         uses: peter-evans/create-or-update-comment@a35cf36e5301d70b76f316e867e7788a55a31dae
